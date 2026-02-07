@@ -49,9 +49,32 @@ public class Tree<T extends Comparable<T>> implements TreeInterface<T> {
 
     @Override
     public void remove(T data) {
-
+        rootNode = remove(data, rootNode);
     }
 
+    private TreeNode<T> remove(T data, TreeNode<T> node) {
+        if (node == null) {
+            return null;
+        }
+        else {
+            if (data.compareTo(node.data) < 0) {
+                node.left = remove(data, node.left);
+            } else if (data.compareTo(node.data) > 0) {
+                node.right = remove(data, node.right);
+            } else {
+                // one child or leaf node (no children)
+                if (node.left == null) {
+                    return node.right;
+                } else if (node.right == null) {
+                    return node.left;
+                }
+                T maxValue = max(node.left);
+                node.left = remove(maxValue, node.left);
+                node.left = remove(maxValue, node.left);
+            }
+        }
+        return node;
+    }
     /**
      * Traverse over BST level by level printing the data each node contains
      * using a Queue

@@ -21,7 +21,7 @@ public class AVL<T extends Comparable<T>> implements TreeInterface<T> {
         java.util.Queue<TreeNode<T>> treeNodeQueue = new java.util.ArrayDeque<>();
         treeNodeQueue.add(node);
         TreeNode<T> current;
-        
+
 
         while (treeNodeQueue.peek() != null) {
             current = treeNodeQueue.remove();
