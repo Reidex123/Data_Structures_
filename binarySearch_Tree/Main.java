@@ -31,24 +31,24 @@ public class Main {
 
         System.out.println("----------------------------------------");
 
-        // binaryTree.remove(5);
-        // binaryTree.remove(30);
-        // System.out.println("Removed 5 and 30!!");
+        binaryTree.remove(5);
+        binaryTree.remove(30);
+        System.out.println("Removed 5 and 30!!");
 
-        // System.out.print("Level-Order: ");
-        // binaryTree.levelOrder(); // 10, 15, 3, 7
-        // System.out.println();
+        System.out.print("Level-Order: ");
+        binaryTree.levelOrder(); // 10, 15, 3, 7
+        System.out.println();
 
-        // System.out.print("Pre-Order: ");
-        // binaryTree.preOrder(); // 10, 3, 7, 15
-        // System.out.println();
+        System.out.print("Pre-Order: ");
+        binaryTree.preOrder(); // 10, 3, 7, 15
+        System.out.println();
 
-        // System.out.print("In-Order: ");
-        // binaryTree.inOrder(); // 3, 7, 10, 15
-        // System.out.println();
+        System.out.print("In-Order: ");
+        binaryTree.inOrder(); // 3, 7, 10, 15
+        System.out.println();
 
-        // System.out.print("Post-Order: ");
-        // binaryTree.postOrder(); // 3, 7, 30, 15
-        // System.out.println();
+        System.out.print("Post-Order: ");
+        binaryTree.postOrder(); // 3, 7, 30, 15
+        System.out.println();
     }
 }

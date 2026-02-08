@@ -56,23 +56,30 @@ public class Tree<T extends Comparable<T>> implements TreeInterface<T> {
         if (node == null) {
             return null;
         }
-        else {
-            if (data.compareTo(node.data) < 0) {
-                node.left = remove(data, node.left);
-            } else if (data.compareTo(node.data) > 0) {
-                node.right = remove(data, node.right);
-            } else {
-                // one child or leaf node (no children)
-                if (node.left == null) {
-                    return node.right;
-                } else if (node.right == null) {
-                    return node.left;
-                }
-                T maxValue = max(node.left);
-                node.left = remove(maxValue, node.left);
-                node.left = remove(maxValue, node.left);
-            }
+
+        if (data.compareTo(node.data) < 0) {
+            node.left = remove(data, node.left);
         }
+        else if (data.compareTo(node.data) > 0) {
+            node.right = remove(data, node.right);
+        }
+
+        else {
+            // node has 0 or 1 child
+            if (node.left == null) {
+                return node.right;
+            }
+            if (node.right == null) {
+                return node.left;
+            }
+
+            // node has 2 children
+            T successor = min(node.right);
+            node.data = successor;
+
+            node.right = remove(successor, node.right);
+        }
+
         return node;
     }
     /**
