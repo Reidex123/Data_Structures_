@@ -6,10 +6,114 @@ public class AVL<T extends Comparable<T>> implements TreeInterface<T> {
 
     @Override
     public void insert(T data) {
+        rootNode = insert(data, rootNode);
+    }
+
+    private TreeNode<T> insert(T data, TreeNode<T> node) {
+        if (node == null) {
+            return new TreeNode<>(data);
+        }
+        if (data.compareTo(node.data) < 0) {
+            node.left = insert(data, node.left);
+        }
+        else if (data.compareTo(node.data) > 0) {
+            node.right = insert(data, node.right);
+        } else {
+            return node;
+        }
+
+        updateHeight(node);
+
+        return applyRotation(node);
+
     }
 
     @Override
     public void remove(T data) {
+        rootNode = remove(data, rootNode);
+    }
+
+    private TreeNode<T> remove(T data, TreeNode<T> node) {
+        if (node == null) {
+            return null;
+        }
+        if (data.compareTo(node.data) < 0) {
+            node.left = remove(data, node.left);
+        }
+        else if (data.compareTo(node.data) > 0) {
+            node.right = remove(data, node.right);
+        }
+        else {
+            if (node.left == null) {
+                return node.right;
+            } else if (node.right == null) {
+                return node.left;
+            }
+
+            T successor = max(node.left);
+            node.left = remove(successor, node.left);
+        }
+
+        updateHeight(node);
+
+        return applyRotation(node);
+    }
+
+    private TreeNode<T> applyRotation(TreeNode<T> node) {
+        int balance = balance(node);
+
+        if (balance > 1) { // left-heavy
+            if (balance(node.left) < 0) {
+                node.left = rotateLeft(node.left);
+            }
+            return rotateRight(node);
+        }
+        if (balance < -1) { // right-heavy
+            if (balance(node.right) > 0) {
+                node.right = rotateRight(node.right);
+            }
+            return rotateLeft(node);
+        }
+
+        return null;
+    }
+
+    private TreeNode<T> rotateLeft(TreeNode<T> node) {
+        TreeNode<T> rightNode = node.right;
+        TreeNode<T> childNode = rightNode.left;
+        rightNode.left = node;
+        node.right = childNode;
+
+        updateHeight(node);
+        updateHeight(rightNode);
+
+        return rightNode;
+    }
+
+    private TreeNode<T> rotateRight(TreeNode<T> node) {
+        TreeNode<T> leftNode = node.left;
+        TreeNode<T> childNode = leftNode.right;
+        leftNode.right = node;
+        node.left = childNode;
+
+        updateHeight(node);
+        updateHeight(leftNode);
+
+        return leftNode;
+    }
+
+    private int balance(TreeNode<T> node) {
+        return node != null ? height(node.left) - height(node.right) : 0;
+    }
+
+    private void updateHeight(TreeNode<T> node) {
+        int maxHeight = Math.max(height(node.left), height(node.right));
+
+        node.height = maxHeight + 1;
+    }
+
+    private int height(TreeNode<T> node) {
+        return node != null ? node.height : 0;
     }
 
     @Override
@@ -80,10 +184,6 @@ public class AVL<T extends Comparable<T>> implements TreeInterface<T> {
             postOrder(node.right);
         }
         System.out.print(node.data + " ");
-    }
-
-    @Override
-    public void updateHeight() {
     }
 
     @Override

@@ -14,8 +14,6 @@ public interface TreeInterface<T> {
 
     public void postOrder();
 
-    public void updateHeight();
-
     public T min();
 
     public T max();
