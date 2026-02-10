@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        java: [21, 'latest']
+        java: [21, 25]
 
     steps:
     - name: Check the code
