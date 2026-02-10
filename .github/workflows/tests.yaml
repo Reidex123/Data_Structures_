@@ -23,38 +23,5 @@ jobs:
         java-version: ${{ matrix.java }}
         cache: maven
 
-    - name: Build
-        run: mvn -B clean package -DskipTests
-
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: app-${{ matrix.java }}
-        path: target/*.jar
-
-  test:
-    need: [build]
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        java: [21, 'latest']
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: ${{ matrix.java }}
-          cache: maven
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: app-${{ matrix.java }}
-          path: target
-
-      - name: Run tests
-        run: mvn -B test
+      run:
+        mvn test
