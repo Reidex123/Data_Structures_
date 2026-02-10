@@ -30,6 +30,9 @@ public class Main {
         binaryTree.postOrder(); // 3, 7, 5, 30, 15, 10
         System.out.println();
 
+        System.out.println("Size = " + binaryTree.size());
+        System.out.println("Height = " + binaryTree.height());
+
         System.out.println("----------------------------------------");
 
         binaryTree.remove(5);
@@ -51,5 +54,8 @@ public class Main {
         System.out.print("Post-Order: ");
         binaryTree.postOrder(); // 3, 7, 30, 15
         System.out.println("----------------------------------------");
+
+        System.out.println("Size = " + binaryTree.size());
+        System.out.println("Height = " + binaryTree.height());
     }
 }
