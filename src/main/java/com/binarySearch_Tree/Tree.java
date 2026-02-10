@@ -1,13 +1,15 @@
 package com.binarySearch_Tree;
-
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 import com.Tree.TreeInterface;
+/*
+ * Copyright (c) 2026 [Hlulani Myambo, Koketso Gaowelwe]
+ * Licensed under the MIT License. See LICENSE file in the project root for full license information.
+*/
 
 /**
  * Implementation of the Binary Search Tree
- *
  * @version 10 February 2026
  */
 public class Tree<T extends Comparable<T>> implements TreeInterface<T> {

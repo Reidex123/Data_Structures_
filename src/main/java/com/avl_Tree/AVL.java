@@ -1,7 +1,16 @@
 package com.avl_Tree;
 
 import com.Tree.TreeInterface;
+/*
+ * Copyright (c) 2026 [Hlulani Myambo, Koketso Gaowelwe]
+ * Licensed under the MIT License. See LICENSE file in the project root for full license information.
+*/
 
+/**
+ * Implementation of the AVL tree
+ * 
+ * @version 10 February 2026
+ */
 public class AVL<T extends Comparable<T>> implements TreeInterface<T> {
 
     public TreeNode<T> rootNode;
