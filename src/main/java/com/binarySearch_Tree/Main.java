@@ -1,4 +1,5 @@
-package binarySearch_Tree;
+package com.binarySearch_Tree;
+
 public class Main {
     public static void main(String[] args) {
         Tree<Integer> binaryTree = new Tree<>();
@@ -10,8 +11,8 @@ public class Main {
         binaryTree.insert(3);
         binaryTree.insert(7);
 
-        System.out.println("\nSearch {30}: " + binaryTree.search(30)); // true
-        System.out.println("Search {50}: " + binaryTree.search(50)); // false
+        System.out.println("\nSearch {30}: " + binaryTree.contains(30)); // true
+        System.out.println("Search {50}: " + binaryTree.contains(50)); // false
 
         System.out.print("Level-Order: ");
         binaryTree.levelOrder(); // 10, 5, 15, 3, 7, 30
@@ -37,18 +38,18 @@ public class Main {
 
         System.out.print("Level-Order: ");
         binaryTree.levelOrder(); // 10, 15, 3, 7
-        System.out.println();
+        System.out.println("----------------------------------------");
 
         System.out.print("Pre-Order: ");
         binaryTree.preOrder(); // 10, 3, 7, 15
-        System.out.println();
+        System.out.println("----------------------------------------");
 
         System.out.print("In-Order: ");
         binaryTree.inOrder(); // 3, 7, 10, 15
-        System.out.println();
+        System.out.println("----------------------------------------");
 
         System.out.print("Post-Order: ");
         binaryTree.postOrder(); // 3, 7, 30, 15
-        System.out.println();
+        System.out.println("----------------------------------------");
     }
 }

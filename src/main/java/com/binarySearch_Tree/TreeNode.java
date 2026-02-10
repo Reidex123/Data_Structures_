@@ -1,4 +1,4 @@
-package binarySearch_Tree;
+package com.binarySearch_Tree;
 
 public class TreeNode<T> {
     public T data;
