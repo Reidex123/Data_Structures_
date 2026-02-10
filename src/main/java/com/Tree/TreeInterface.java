@@ -1,5 +1,10 @@
 package com.Tree;
 
+/*
+ * Copyright (c) 2026 [Hlulani Myambo, Koketso Gaowelwe]
+ * Licensed under the MIT License. See LICENSE file in the project root for full license information.
+*/
+
 /**
  * This is the interface of the any tree that will be implemented.
  */
@@ -7,7 +12,7 @@ public interface TreeInterface<T extends Comparable<T>> {
     /**
      * This method inserts a node into the element if it does not exists.
      * in case the node exists, the node will be skipped
-     * 
+     *
      * @param data Which is the node to be inserted in case it is not in the tree
      *             already.
      */
@@ -15,14 +20,14 @@ public interface TreeInterface<T extends Comparable<T>> {
 
     /**
      * This method removes the node from the tree in case it exists.
-     * 
+     *
      * @param data This is the node to be removed from the tree.
      */
     public void remove(T data);
 
     /**
      * This method checks whether the node exists in the tree or not.
-     * 
+     *
      * @param data This is the node to be checked whether it exists or not
      * @return boolean - true if exists and false if not exists
      */
@@ -54,14 +59,14 @@ public interface TreeInterface<T extends Comparable<T>> {
 
     /**
      * This method counts the number of nodes in the tree.
-     * 
+     *
      * @return The size or the number of nodes in the tree.
      */
     public int size();
 
     /**
      * This method calculates the height of the tree - zero based height.
-     * 
+     *
      * @return The height of the tree.
      */
     public int height();
