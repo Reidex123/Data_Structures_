@@ -38,7 +38,7 @@ jobs:
 
       - name: Check for forbidden file changes
         run: |
-          if [[ "$GITHUB_ACTOR" != "trusted-user" ]]; then
+          if [[ "$GITHUB_ACTOR" != "myambohlulani" ]]; then
               exit 1
             fi
 
