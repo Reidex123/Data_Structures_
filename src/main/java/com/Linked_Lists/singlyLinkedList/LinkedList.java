@@ -229,7 +229,7 @@ public class LinkedList<T> implements Iterable<T>{
 	}
 	
 	private void NullArgumentException(){
-		System.out.println("Add non-null argument..!!!!")
+		System.out.println("Add non-null argument..!!!!");
 	}
 
 	private void IndexOutOfBounds(){
