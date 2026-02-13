@@ -38,10 +38,6 @@ jobs:
 
       - name: Check for forbidden file changes
         run: |
-          if [[ "$GITHUB_ACTOR" != "myambohlulani" ]]; then
-              exit 1
-            fi
-
           PROTECTED_FILES=(
           "pom.xml"
           ".github/workflows/protected-files.yml"
@@ -54,7 +50,7 @@ jobs:
           echo "${CHANGED_FILES}"
 
           for file in "${PROTECTED_FILES[@]}"; do
-            if echo "${CHANGED_FILES}" | grep -qx "${file}"; then
+            if echo "${CHANGED_FILES}" | grep -qx "${file}" && [ "$GITHUB_ACTOR" != "myambohlulani" ]; then
               echo "Error: ${file} must not me modified."
               exit 1
             fi
