@@ -340,7 +340,111 @@ public class LinkedList<T> implements Iterable<T>{
 		T data = (current.next).data;
 		current.next = null;
 
+		(this.size)--;
+
 		return data;
+	}
+
+	/**
+	 * Pop an element from the stack represented by this list
+	 */
+	public T pop() {
+		return this.pollLast();
+	}
+
+	/**
+	 * Returns the index of the first occurance of the specified element in the list
+	 * @param data - element of which we need the index of
+	 */
+	public int indexOf(T data) {
+		if (data == null) {
+			return -1;
+		}
+
+		int index = 0;
+		Node<T> current = this.head;
+
+		while (current.next != null) {
+			if (current.data == data) {
+				return index;
+			}
+
+			current = current.next;
+			index++;
+		}
+
+		return -1;
+	}
+
+	/**
+	 * Returns and remove the heard of the list
+	 */
+	public T remove() {
+		return this.pollFirst();
+	}
+
+	/**
+	 * Returns and removes an element from this list at a specified index
+	 * @param index - position of the element to remove
+	 */
+	public T remove(int index) {
+		if (index < 0 || index > this.getSize()) {
+			this.IndexOutOfBounds();
+			return null;
+		}
+
+		if (index == 0) {
+			return pollFirst();
+		}
+
+		if (index == this.getSize() - 1) {
+			return pollLast();
+		}
+
+		Node<T> nodeToDelete;
+		Node<T> current = this.head;
+
+		for (int i = 0; i < index; i++) {
+			current = current.next;
+		}
+
+		nodeToDelete = current.next;
+		T data = nodeToDelete.data;
+		current.next = nodeToDelete.next;
+
+		(this.size)--;
+
+		return data;
+	}
+
+	/**
+	 * Removes the first occurance of the element from the list
+	 * @param data - element to remove
+	 */
+	public boolean remove(T data) {
+		if (data != null) {
+			int index = this.indexOf(data);
+			T removedElement = index >= 0 ? this.remove(index) : null;
+
+			(this.size)--;
+			return removedElement != null;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Removes and return the first element of this list
+	 */
+	public T removeFirst() {
+		return this.remove();
+	}
+
+	/**
+	 * Removes and return the last element of this list
+	 */
+	public T removeLast() {
+		return this.pollLast();
 	}
 
 	/**
