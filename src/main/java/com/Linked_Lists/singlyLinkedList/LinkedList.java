@@ -151,14 +151,45 @@ public class LinkedList<T> implements Iterable<T>{
 	 * Add the specified element at the end of the list
 	 * @param data - element to add
 	 */
-	public void addLast(T data){
+	public void addLast(T data) {
 
-		if (data == null){
+		if (data == null) {
 			NullArgumentException();
 			return;
 		}
 
 		this.add(data);
+	}
+
+	/**
+	 * Replaces the element in the specified index with the element specified
+	 * @param index - position where to replace
+	 * @param data - new element in this position
+	 */
+	public void set(int index, T data) {
+
+		if (index < 0 || index > this.getSize()) {
+			this.IndexOutOfBounds();
+			System.exit(0);
+		}
+
+		if (index == 0) {
+			(this.head).data = data;
+			System.exit(0);
+		}
+
+		if (isEmpty() && index > 0) {
+			System.out.println("The list is empty. Operation cannot be executed!!");
+			System.exit(0);
+		}
+
+		Node<T> current = this.head;
+
+		for (int i = 0; i < index; i++) {
+			current = current.next;
+		}
+
+		current.data = data;
 	}
 
 	/**
