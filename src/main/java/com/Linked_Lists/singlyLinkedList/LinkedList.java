@@ -296,6 +296,54 @@ public class LinkedList<T> implements Iterable<T>{
 	}
 
 	/**
+	 * Removes and returns the heard of the list
+	 */
+	public T poll() {
+		return this.pollFirst();
+	}
+
+	/**
+	 * Removes and returns the first element of this list
+	 */
+	public T pollFirst() {
+		if (this.getSize() == 1) {
+			T data = this.getFirst();
+			this.head = null;
+			(this.size)--;
+			return data;
+		}
+
+		Node<T> nodeToRemove = this.head;
+		this.head.next = this.head;
+
+		(this.size)--;
+
+		return nodeToRemove.data;
+	}
+
+	/**
+	 * Removes and returns the last element of this list
+	 */
+	public T pollLast() {
+		if (this.getSize() == 1) {
+			return this.pollFirst();
+		}
+
+		Node<T> current = this.head;
+		int pointer = 0;
+
+		while (pointer != this.getSize() - 1) {
+			current = current.next;
+			pointer++;
+		}
+
+		T data = (current.next).data;
+		current.next = null;
+
+		return data;
+	}
+
+	/**
 	 * Returns the size of this list
 	 */
 	public int getSize(){
