@@ -171,8 +171,6 @@ public class LinkedList<T> implements Iterable<T>{
 			pointer++;
 		}
 
-		current = current.next;
-
 		return current.data;
 
 	}
@@ -241,7 +239,7 @@ public class LinkedList<T> implements Iterable<T>{
 		StringBuilder string = new StringBuilder();
 
 		for (int i = 0; i < this.getSize() - 1; i++) {
-			string.append(current.data).append(" -> ");
+			string.append(current.data).append("-> ");
 			current = current.next;
 		}
 
