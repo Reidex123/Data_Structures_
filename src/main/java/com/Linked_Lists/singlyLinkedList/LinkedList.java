@@ -270,9 +270,29 @@ public class LinkedList<T> implements Iterable<T>{
 	 * Adds the specified element at the end of this list
 	 * @param data - element to add
 	 */
-	public boolean offerLast(T data){
+	public boolean offerLast(T data) {
 		this.addLast(data);
 		return true;
+	}
+
+	/**
+	 * Checks if the specified element is in the list
+	 * @param data - element to check
+	 */
+	public boolean contains(T data) {
+
+		if (!this.isEmpty() && data != null) {
+			Node<T> current = this.head;
+
+			while (current.next != null) {
+				if (current.data == data) {
+					return true;
+				}
+				current = current.next;
+			}
+		}
+
+		return false;
 	}
 
 	/**
