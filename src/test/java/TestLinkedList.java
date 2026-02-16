@@ -52,7 +52,7 @@ public class TestLinkedList {
 
     @Test
     public void testGetMethods() {
-	for(int i = 1; i <= 4; i++ {
+	for(int i = 1; i <= 4; i++) {
 		this.list.add(i);
 	}
 
