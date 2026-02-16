@@ -1,26 +1,20 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import com.Linked_Lists.singlyLinkedList.LinkedList;
 
-public class testLinkedList {
+public class TestLinkedList {
+    private final LinkedList<Integer> list;
 
-    private LinkedList<Integer> list;
-
-    @BeforeEach
-    public void setUp() {
-        list = new LinkedList<>();
+    public TestLinkedList() {
+        this.list = new LinkedList<>();
     }
 
     @Test
     public void testAdd() {
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        list.add(5);
-        list.add(6);
+	for(int i = 1; i <= 6; i++) {
+		this.list.add(i);
+	}
 
         assertEquals(Integer.valueOf(1), list.getFirst());
         assertEquals(Integer.valueOf(6), list.getLast());
@@ -40,10 +34,9 @@ public class testLinkedList {
 
     @Test
     public void testAddAtIndex() {
-        list.add(1);
-        list.add(2);
-        list.add(3);
-
+	for(int i = 1; i <= 3; i++) {
+		this.list.add(i);
+	}
         list.add(1, 9); // Insert 9 at index 1
 
         assertEquals(Integer.valueOf(9), list.get(1));
@@ -59,10 +52,9 @@ public class testLinkedList {
 
     @Test
     public void testGetMethods() {
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
+	for(int i = 1; i <= 4; i++ {
+		this.list.add(i);
+	}
 
         assertEquals(Integer.valueOf(4), list.get(3));
         assertEquals(Integer.valueOf(1), list.getFirst());
