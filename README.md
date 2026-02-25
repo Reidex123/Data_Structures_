@@ -56,6 +56,9 @@
    - Main operations: ``insert()``, ``remove()``, ``contains()``
  - Testing:
    - testing during **push** and **pull request**
+ - LinkedLists supports:
+   - add, remove, addFirst, addLast, peek, peekFirst, peekLast
+   - Traversal over the list
 
 ## Contributing
     ...
