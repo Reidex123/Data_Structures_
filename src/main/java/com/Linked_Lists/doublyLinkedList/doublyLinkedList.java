@@ -1,9 +1,9 @@
 package com.Linked_Lists.doublyLinkedList;
 
-import java.util.Collections;
+
 import java.util.Iterator;
 
-public class doublyLinkedList<T extends Collections> implements Iterable<T> {
+public class doublyLinkedList<T> implements Iterable<T> {
 
     @SuppressWarnings("hiding")
     public class Node<T> {
