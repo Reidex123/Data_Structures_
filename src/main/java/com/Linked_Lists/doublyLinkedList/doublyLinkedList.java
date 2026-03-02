@@ -1,5 +1,8 @@
-package com.Linked_Lists.doublyLinkedList;
+/**
+ * Implementation of doubly linked list
+ */
 
+package com.Linked_Lists.doublyLinkedList;
 
 import java.util.Iterator;
 
@@ -25,11 +28,20 @@ public class doublyLinkedList<T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return false;
+            return current.next != null;
         }
 
         @Override
         public T next() {
+            T data;
+
+            if (hasNext()) {
+                data = current.data;
+                current = current.next;
+
+                return data;
+            }
+
             return null;
         }
     }
