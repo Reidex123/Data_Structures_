@@ -216,7 +216,7 @@ public class doublyLinkedList<T> implements Iterable<T> {
         Node<T> current = this.head;
         Node<T> nodeToDelete = null;
         for (int i = 0; i < index-1; i++){
-            currnet = current.next;
+            current = current.next;
         }
 
         nodeToDelete = current.next;
