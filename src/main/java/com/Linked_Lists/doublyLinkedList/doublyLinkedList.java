@@ -1,5 +1,6 @@
 /**
  * Implementation of doubly linked list
+ * @version 02/03/2026
  */
 
 package com.Linked_Lists.doublyLinkedList;
@@ -9,6 +10,9 @@ import java.util.Iterator;
 public class doublyLinkedList<T> implements Iterable<T> {
 
     @SuppressWarnings("hiding")
+    /**
+     * Node class
+     */
     public class Node<T> {
         public T data;
         public Node<T> prev;
@@ -26,11 +30,17 @@ public class doublyLinkedList<T> implements Iterable<T> {
             current = list.head;
         }
 
+        /**
+         * Check if the list has next element
+         */
         @Override
         public boolean hasNext() {
             return current.next != null;
         }
 
+        /**
+         * Access the next element in the list by printing out the current and move the pointer ahead
+         */
         @Override
         public T next() {
             T data;
@@ -54,6 +64,10 @@ public class doublyLinkedList<T> implements Iterable<T> {
         this.size = 0;
     }
 
+    /**
+     * Add the specified element to the end of the list
+     * @param data - element to be inserted
+     */
     public void add(T data) {
         if (isEmpty()) {
             this.head = new Node<>(data);
@@ -73,6 +87,10 @@ public class doublyLinkedList<T> implements Iterable<T> {
         this.size++;
     }
 
+    /**
+     * Add the specified element to the start of this list
+     * @param data - element to be inserted
+     */
     public void addFirst(T data) {
         if (isEmpty()) {
             this.head = new Node<>(data);
@@ -87,10 +105,19 @@ public class doublyLinkedList<T> implements Iterable<T> {
         this.size++;
     }
 
+    /**
+     * Add the specified element at the end of this list
+     * @param data - element to be inserted at the end of the list
+     */
     public void addLast(T data) {
         this.add(data);
     }
 
+    /**
+     * Add the specified element to the specified index in the list
+     * @param index - position to insert the element
+     * @param data - element to be inserted
+     */
     public void add(int index, T data) {
         if (index < 0 || index >= this.size) {
             System.out.println("Index out of bounds!!");
@@ -120,6 +147,9 @@ public class doublyLinkedList<T> implements Iterable<T> {
         current.prev = node;
     }
 
+    /**
+     * Check if the list is empty
+     */
     public boolean isEmpty() {
         return this.size == 0;
     }
@@ -129,6 +159,9 @@ public class doublyLinkedList<T> implements Iterable<T> {
         return new listIterator(this);
     }
 
+    /**
+     * String representation of this list
+     */
     @Override
     public String toString() {
         return null;
