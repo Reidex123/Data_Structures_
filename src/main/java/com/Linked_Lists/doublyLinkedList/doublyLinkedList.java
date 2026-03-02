@@ -228,6 +228,81 @@ public class doublyLinkedList<T> implements Iterable<T> {
     }
 
     /**
+     * Get the first element of this list
+     */
+    public T getFirst(){
+        return this.isEmpty() ? null: this.head.data;
+    }
+
+    /**
+     * Get the last element of this list
+     */
+    public T getLast(){
+        if (isEmpty()){
+            return null;
+        }
+
+        Node<T> current = this.head;
+        while(current.next != null){
+            current = current.next;
+        }
+
+        return current.data;
+    }
+
+    /**
+     * Get the element at a specified index
+     * @param index - position of the element to get
+     */
+    public T get(int index){
+        if (isEmpty()){
+            return null;
+        }
+
+        if (index < 0 || index > this.size){
+            System.out.println("Invalid index!!");
+            return null;
+        }
+
+        if (index == 0){
+            return this.getFirst();
+        }
+        if (index == this.size-1){
+            return this.getLast();
+        }
+
+        Node<T> current = this.heard;
+        for (int i = 0; i <= index; i++){
+            current = current.next;
+        }
+
+        return current.data;
+
+    }
+
+    /**
+     * Return the index of the specified element, else return -1
+     * @param data - element we want to find its index
+     */
+    public int indexOf(T data){
+        if (!this.contains(data)){
+            return -1;
+        }
+
+        Node<T> current = this.head;
+        int index = 0;
+
+        while(current.next != null){
+            if (current.data == data){
+                return index;
+            }
+
+            current = current.next;
+            index++;
+        }
+    }
+
+    /**
      * Check if the specified element is contained in this list
      * @param data - element to search if it exists in the list
      */
