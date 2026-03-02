@@ -271,7 +271,7 @@ public class doublyLinkedList<T> implements Iterable<T> {
             return this.getLast();
         }
 
-        Node<T> current = this.heard;
+        Node<T> current = this.head;
         for (int i = 0; i <= index; i++){
             current = current.next;
         }
@@ -380,7 +380,7 @@ public class doublyLinkedList<T> implements Iterable<T> {
     @Override
     public String toString() {
         StringBuffer list = new StringBuffer();
-        Node<T> current = this.heard;
+        Node<T> current = this.head;
         
         list.append("[ ");
 
