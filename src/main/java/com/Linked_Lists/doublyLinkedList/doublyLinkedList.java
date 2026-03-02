@@ -331,6 +331,8 @@ public class doublyLinkedList<T> implements Iterable<T> {
             current = current.next;
             index++;
         }
+
+        return -1;
     }
 
     /**
