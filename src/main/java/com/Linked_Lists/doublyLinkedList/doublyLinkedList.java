@@ -281,6 +281,37 @@ public class doublyLinkedList<T> implements Iterable<T> {
     }
 
     /**
+     * get but does not remove the first element of this list
+     */
+    public T element(){
+        return this.getFirst();
+    }
+
+    /**
+     * Add the specified element at the tail
+     * @param data - element to add
+     */
+    public void offer(T data){
+        this.addLast(data);
+    }
+
+    /**
+     * insert the specified element to the start of the list
+     * @param data - element to be inserted
+     */
+    public void offerFirst(T data){
+        this.addFirst(data);
+    }
+
+    /**
+     * insert the specified element to the end of the list
+     * @param data - element to be inserted
+     */
+    public void offerLast(T data){
+        this.offer(data);
+    }
+
+    /**
      * Return the index of the specified element, else return -1
      * @param data - element we want to find its index
      */
