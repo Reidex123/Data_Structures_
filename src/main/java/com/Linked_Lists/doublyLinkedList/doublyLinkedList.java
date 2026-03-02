@@ -389,7 +389,7 @@ public class doublyLinkedList<T> implements Iterable<T> {
             current = current.next;
         }
 
-        list.append(current.data + " ").append("]")
+        list.append(current.data + " ").append("]");
 
         return list.toString();
     }
