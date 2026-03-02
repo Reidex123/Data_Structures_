@@ -148,10 +148,119 @@ public class doublyLinkedList<T> implements Iterable<T> {
     }
 
     /**
+     * Remove the first element in the list
+     */
+    public void removeFirst(){
+        if (isEmpty()){
+            System.out.println("The list is empty, operation cannot be performed.!!");
+            Runtime.getRuntime().exit(0);
+        }
+
+        Node<T> nodeToDelete = this.head;
+        this.head = nodeToDelete.next;
+
+        this.head.prev = null;
+        nodeToDelete.next = null;
+
+        this.size--;
+
+    }
+
+    /**
+     * Remove the last element in this list
+     */
+    public void removeLast(){
+        if (isEmpty()){
+            System.out.println("The list is empty, operation cannot be performed.!!");
+            Runtime.getRuntime().exit(0);
+        }
+
+        Node<T> nodeToDelete = null;
+        Node<T> current = this.head;
+        while(current.next != null){
+            current = current.next;
+        }
+
+        nodeToDelete = current;
+        current.prev.next = null;
+        nodeToDelete.prev = null;
+
+        this.size--;
+    }
+
+    /**
+     * Remove the element at a specified position
+     * @param index - position of the element to be removed
+     */
+    public void remove(int index){
+        if (isEmpty()){
+            System.out.println("This list is empty, operstion cannot be performed.!!");
+            Runtime.getRuntime().exit(0);
+        }
+
+        if (index < 0 || index > this.size){
+            System.out.println("Invalid index!!!");
+            Runtime.getRuntime().exit(0);
+        }
+
+        if (index == 0){
+            this.removeFirst();
+            Runtime.getRuntime().exit(0);
+        }
+
+        if (index == this.size-1){
+            this.removeLast();
+            Runtime.getRuntime().exit(0);
+        }
+
+        Node<T> current = this.head;
+        Node<T> nodeToDelete = null;
+        for (int i = 0; i < index-1; i++){
+            currnet = current.next;
+        }
+
+        nodeToDelete = current.next;
+        current.next = nodeToDelete.next;
+        nodeToDelete.next.prev = current;
+        nodeToDelete.prev = null;
+
+        this.size--;
+    }
+
+    /**
+     * Check if the specified element is contained in this list
+     * @param data - element to search if it exists in the list
+     */
+    public boolean contains(T data){
+        if (isEmpty()){
+            return false;
+        }
+
+        Node<T> current = this.head;
+
+        while(current.next != null){
+            if (current.data == data){
+                return true;
+            }
+
+            current = current.next;
+        }
+
+        return false;
+    }
+
+    /**
      * Check if the list is empty
      */
     public boolean isEmpty() {
         return this.size == 0;
+    }
+
+    /**
+     * Obtain the size of this list
+     */
+    public int getSize(){
+        return this.size;
     }
 
     @Override
@@ -164,7 +273,19 @@ public class doublyLinkedList<T> implements Iterable<T> {
      */
     @Override
     public String toString() {
-        return null;
+        StringBuffer list = new StringBuffer();
+        Node<T> current = this.heard;
+        
+        list.append("[ ");
+
+        for (int i = 0; i < this.size-1; i++){
+            list.append(current.data + " ").append("->");
+            current = current.next;
+        }
+
+        list.append(current.data + " ").append("]")
+
+        return list.toString();
     }
 
 }
