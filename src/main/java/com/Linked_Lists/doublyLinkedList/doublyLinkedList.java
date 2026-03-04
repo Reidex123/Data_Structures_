@@ -311,6 +311,18 @@ public class doublyLinkedList<T> implements Iterable<T> {
         this.offer(data);
     }
 
+    public T peek(){
+        return this.getFirst();
+    }
+
+    public T peekFirst() {
+        return this.peek();
+    }
+
+    public T peekLast() {
+        return this.getLast();
+    }
+
     /**
      * Return the index of the specified element, else return -1
      * @param data - element we want to find its index
@@ -383,7 +395,7 @@ public class doublyLinkedList<T> implements Iterable<T> {
     public String toString() {
         StringBuffer list = new StringBuffer();
         Node<T> current = this.head;
-        
+
         list.append("[ ");
 
         for (int i = 0; i < this.size-1; i++){
