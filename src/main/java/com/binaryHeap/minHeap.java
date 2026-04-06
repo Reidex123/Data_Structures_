@@ -69,4 +69,14 @@ public class minHeap {
             this.heapify(i);
         }
     }
+
+    @SuppressWarnings("rawtypes")
+    public Comparable deleteMin() {
+        
+        Comparable minItem = this.array[1];
+        this.array[1] = this.array[this.currentSize--];
+        this.heapify(1);
+
+        return minItem;
+    }
 }
