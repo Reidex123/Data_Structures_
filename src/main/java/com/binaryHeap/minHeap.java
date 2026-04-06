@@ -2,6 +2,7 @@ package com.binaryHeap;
 
 public class minHeap {
 
+    @SuppressWarnings("rawtypes")
     public Comparable[] array;
     public int currentSize;
 
@@ -27,10 +28,45 @@ public class minHeap {
                 this.array[i] = this.array[child];
                 this.array[child] = temp;
                 i = child;
-            }
-            else {
+            } else {
                 break;
             }
+        }
+    }
+
+    @SuppressWarnings("rawtypes")
+    public void insert(Comparable x) {
+
+        if (this.currentSize + 1 == this.array.length) {
+            this.doubleArray();
+        }
+
+        int i = ++this.currentSize;
+        this.array[i] = x;
+
+        while (i > 0 && x.compareTo(this.array[i / 2]) < 0) {
+            this.array[i] = this.array[i / 2]; // heapify the parent down
+            i = i / 2;
+        }
+
+        this.array[i] = x;
+
+    }
+
+    @SuppressWarnings("rawtypes")
+    private void doubleArray() {
+        int newSize = this.array.length * 2;
+        Comparable[] newArray = new Comparable[newSize];
+
+        System.arraycopy(this.array, 0, newArray, 0, this.array.length);
+
+        this.array = newArray;
+    }
+
+    @SuppressWarnings("unused")
+    private void buildHeap() {
+        for (int i = currentSize / 2; i > 0; i--) {
+            this.heapify(i);
         }
     }
 }
